@@ -1,0 +1,43 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'C:/Users/arell/OneDrive/Documentos/NetBeansProjects/Clases/src/main/java'
+-author
+'Arellano Bruno'
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/arell/OneDrive/Documentos/NetBeansProjects/Clases/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Clases 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/arell/OneDrive/Documentos/NetBeansProjects/Clases/target/javadoc-bundle-options'
+-use
+-version
+'1.0'
+-windowtitle
+'Clases 1.0-SNAPSHOT API'
+BrunoAritmetica
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\src\main\java = 1690867416243
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\allclasses-frame.html = 1690871038618
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\allclasses-noframe.html = 1690871038619
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\constant-values.html = 1690871038535
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\deprecated-list.html = 1690871038617
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\help-doc.html = 1690871038621
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\index-all.html = 1690871038569
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\index.html = 1690871038620
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\overview-frame.html = 1690866174707
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\overview-summary.html = 1690866174885
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\overview-tree.html = 1690871038554
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\package-list = 1690871038520
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\script.js = 1690871038622
+C:\Users\arell\OneDrive\Documentos\NetBeansProjects\Clases\target\site\apidocs\stylesheet.css = 1690865938713
