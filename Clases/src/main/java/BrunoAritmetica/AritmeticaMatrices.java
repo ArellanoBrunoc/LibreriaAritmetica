@@ -6,12 +6,17 @@ package BrunoAritmetica;
  * Inversa, Determinantes parciales, Determinantes, Etc..
  *
  * @author Arellano Bruno
- * @version 1.0
+ * @version 1.1
  */
 public class AritmeticaMatrices {
-
-    private int[][] matrizA1 = new int[4][4];
-
+    
+    private int[][] matrizA1 = {{3, 4, -3}, {7, -2, -3}, {-8, -2, 3}};
+    private float[][] matrizA2 = {{1,-2, 2, -3}, {3, 4, -1,1}, {2, -3, 2,-1},{1,1,-3,-2}};
+    private float[] vectorA2 = {15, -6 , 17,-7};
+    
+//    {{2, -1, 1}, {3, 1, -2}, {-1, 2, 5}};
+//{{-2, 3, 3}, {1, -4, -2}, {5, -1, 3}};
+//    {{1,-2, 2, -3}, {3, 4, -1,1}, {2, -3, 2,-1},{1,1,-3,-2}};
     /**
      *
      * @param x Recibe un enterero que sera igual a la cantidad de filas de la
@@ -25,7 +30,7 @@ public class AritmeticaMatrices {
         int[][] tablas = new int[x][y];
         int base = 1;
         int mult = 1;
-
+        
         for (int i = 0; i < tablas.length; i++) {
             for (int j = 0; j < tablas[i].length; j++) {
                 tablas[i][j] = base * mult;
@@ -55,7 +60,7 @@ public class AritmeticaMatrices {
         int[][] tablas = new int[x][y];
         int base = 1;
         int mult = 1;
-
+        
         for (int i = 0; i < tablas.length; i++) {
             for (int j = 0; j < tablas[i].length; j++) {
                 tablas[i][j] = base * mult;
@@ -82,7 +87,7 @@ public class AritmeticaMatrices {
      * @return Regresa el determinante parcial positivo de la matriz
      */
     public int determinantePositivo(int x[][], int y) {
-
+        
         int[] arregloMul = new int[x.length]; //Este arreglo va a guardar los valores de cada diagonal a evaluar
         int contador = y;//La cantidad de diagonales principales siempre va a ser igual al numero de filas de la matriz original; // Modificar a matriz.length si se quiere obetener el derterminante de una matriz 3 x 3, dejar en 1 si se planea usar para cofactores de matricecs nxn
         int detPositivos = 0; //Memoria de la suma de las multiplicaciones de las diagonales principales
@@ -95,19 +100,19 @@ public class AritmeticaMatrices {
             for (int i = 0; i <= x.length - 1; i++) {
                 for (int j = 0; j < 1; j++) {
                     arregloMul[i] = x[desplazadorCoordenadax][desplazadorCoordenaday];
-
+                    
                 }
                 desplazadorCoordenaday++; // Estos incrementadores desplazan la cordenada original (0,0) a la siguiente (1,1).... etc de la primera diagonal
                 desplazadorCoordenadax++;
-
+                
             }
             contador--; // Para este punto ya se guardo en el arreglo la primera diagonal asi que el contador disminuye en 1
             corrector++; // Con excepcion de la primera diagonal (0,0) (1,1) .... etc, las siguientes diagonales tienes que ir con un desfase (x, x+1)
             for (int i = 0; i < x.length - 1; i++) {// Este ciclo multiplica todos los numeros de la diagonal guardados en el arreglo y los acumula en la posicion 0 del mismo
                 arregloMul[0] *= arregloMul[i + 1];
-
+                
             }
-
+            
             if (sumaoresta == 0) {// Este condicional se utiliza para ir intercalando + y - en la suma de los factores
 
                 detPositivos = detPositivos + (arregloMul[0]); //Este acumulador guarda la multiplicacion de la diagonal
@@ -142,7 +147,7 @@ public class AritmeticaMatrices {
         int desplazadorCoordenadax = 0;
         int desplazadorCoordenaday = x[0].length - 1;
         byte corrector = -1;
-
+        
         while (contador != 0) {
             for (int i = 0; i <= x.length - 1; i++) {
                 for (int j = 0; j < 1; j++) {
@@ -156,7 +161,7 @@ public class AritmeticaMatrices {
             for (int i = 0; i < x.length - 1; i++) {
                 arregloMul[0] *= arregloMul[i + 1];
             }
-
+            
             if (sumaoresta == 0) {
                 detNegativos = detNegativos - (arregloMul[0]);
                 desplazadorCoordenadax = 0;
@@ -167,9 +172,9 @@ public class AritmeticaMatrices {
                 desplazadorCoordenadax = 0;
                 desplazadorCoordenaday = (x[0].length - 1) - (1 + corrector);
                 sumaoresta = 0;
-
+                
             }
-
+            
         }
         // System.out.println("El pre-determinante negativo es:" + " " + detNegativos);
         return detNegativos;
@@ -203,7 +208,21 @@ public class AritmeticaMatrices {
      */
     public int[][] getMatrizA1() {
         return matrizA1;
+        
+    }
 
+    /**
+     *
+     * @return Obtiene la matriz con su valores
+     */
+    public float[][] getMatrizA2() {
+        return matrizA2;
+        
+    }
+    
+    public float[] getvectorA2() {
+        return vectorA2;
+        
     }
 
     /**
@@ -213,7 +232,7 @@ public class AritmeticaMatrices {
      */
     public void setMatrizA1(int[][] x) {
         this.matrizA1 = x;
-
+        
     }
 
     /**
@@ -237,7 +256,7 @@ public class AritmeticaMatrices {
      * @return Regresa la diferencia de diagonales principales
      */
     public int diferenciaDiagonales(int[][] x) {
-
+        
         AritmeticaMatrices prueba = new AritmeticaMatrices();
         System.out.println("");
         int[][] matrix = x;
@@ -262,18 +281,18 @@ public class AritmeticaMatrices {
         byte salto = 0;
         byte coordi = 0;
         byte coordj = 0;
-
+        
         System.out.println("");
-
+        
         for (int i = 0; i < matriz.length; i++) {
             cofactor[i] = matriz[0][i];
-
+            
         }
         while (escalares != 0) {
             for (int i = 1; i <= 3; i++) {
                 for (int j = 0; j <= 3; j++) {
                     if (j != salto) {
-
+                        
                         matrizTemporal[coordi][coordj] = matriz[i][j];
                         coordj++;
                     }
@@ -283,7 +302,7 @@ public class AritmeticaMatrices {
             }
             coordi = 0;
             salto++;
-
+            
             if (masomenos == 0) {
                 resultado = resultado + (cofactor[contador] * AritmeticaMatrices.determinanteMatriz3(matrizTemporal));
                 contador++;
@@ -294,7 +313,7 @@ public class AritmeticaMatrices {
                 masomenos = 0;
             }
             escalares--;
-
+            
         }
         return resultado;
     }
@@ -317,7 +336,7 @@ public class AritmeticaMatrices {
         int barraj = adjunta.length;
         byte masomenos = 0;
         byte contador = 0;
-
+        
         System.out.println("Las sub matrices de 3 x 3 son :");
         while (barrai != 0) { // Lleva el contador de la cantidad de movimientos de la barra en i
             while (barraj != 0) {// Lleva el contador de la cantidad de movimiento de la barra en j
@@ -339,7 +358,7 @@ public class AritmeticaMatrices {
                 saltoj++; // Desplaza la barra de las columnas 1 a la derecha
                 MetodosDeOrdenamiento.ImprimirMatriz(matrizTemporal);
                 System.out.println("");
-
+                
                 if (contador == adjunta.length) {// Este condicional organiza el sistema de modo que los datos resulten en el orden + , - , +, - y reestablece la coordeenada en la matriz adjunta
                     coordiA++;
                     coordjA = 0;
@@ -350,7 +369,7 @@ public class AritmeticaMatrices {
                         masomenos = 0;
                     }
                 }
-
+                
                 if (masomenos == 0) {
                     adjunta[coordiA][coordjA] = (AritmeticaMatrices.determinanteMatriz3(matrizTemporal));
                     coordjA++;
@@ -362,7 +381,7 @@ public class AritmeticaMatrices {
                     contador++;
                     masomenos = 0;
                 }
-
+                
                 barraj--;
             }
             saltoi++;
@@ -394,16 +413,16 @@ public class AritmeticaMatrices {
         int barraj = adjunta.length;
         byte masomenos = 0;
         byte contador = 0;
-
+        
         System.out.println("Las sub matrices de 2 x 2 son :");
         while (barrai != 0) {
             while (barraj != 0) {
-
+                
                 for (int i = 0; i <= adjunta.length - 1; i++) {
                     if (i != saltoi) {
                         for (int j = 0; j <= adjunta.length - 1; j++) {
                             if (j != saltoj) {
-
+                                
                                 matrizTemporal[coordi][coordj] = x[i][j];
                                 coordj++;
                             }
@@ -426,7 +445,7 @@ public class AritmeticaMatrices {
                         masomenos = 1;
                     }
                 }
-
+                
                 if (masomenos == 0) {
                     adjunta[coordiA][coordjA] = (prueba.diferenciaDiagonales(matrizTemporal));
                     coordjA++;
@@ -438,7 +457,7 @@ public class AritmeticaMatrices {
                     contador++;
                     masomenos = 0;
                 }
-
+                
                 barraj--;
             }
             saltoi++;
@@ -449,7 +468,7 @@ public class AritmeticaMatrices {
         System.out.println("La matriz adjunta es:");
         MetodosDeOrdenamiento.ImprimirMatriz(adjunta);
         return adjunta;
-
+        
     }
 
     /**
@@ -458,19 +477,19 @@ public class AritmeticaMatrices {
      * @return Retorna e imprime la matriz inversa de la matriz original
      */
     public float[][] inversa4x4(int[][] x) {
-
+        
         MetodosDeOrdenamiento prueba = new MetodosDeOrdenamiento();
-
+        
         int[][] Transpuesta = prueba.matrizTranspuesta(adjunta4(x));
-
+        
         float[][] Inversa = new float[Transpuesta.length][Transpuesta.length];
         float inversoDeterminante = (float) 1 / determinanteMatriz4(x);
-
+        
         for (int i = 0; i < Transpuesta.length; i++) {
             for (int j = 0; j < Transpuesta.length; j++) {
                 Inversa[i][j] = (Transpuesta[i][j] * inversoDeterminante);
             }
-
+            
         }
         MetodosDeOrdenamiento.ImprimirMatriz(Inversa);
         return Inversa;
@@ -482,22 +501,93 @@ public class AritmeticaMatrices {
      * @return Retorna e imprime la matriz inversa de la matriz original
      */
     public float[][] inversa3x3(int[][] x) {
-
+        
         MetodosDeOrdenamiento prueba = new MetodosDeOrdenamiento();
-
+        
         int[][] Transpuesta = prueba.matrizTranspuesta(adjunta3(x));
-
+        
         float[][] Inversa = new float[Transpuesta.length][Transpuesta.length];
         float inversoDeterminante = (float) 1 / determinanteMatriz3(x);
-
+        
         for (int i = 0; i < Transpuesta.length; i++) {
             for (int j = 0; j < Transpuesta.length; j++) {
                 Inversa[i][j] = (Transpuesta[i][j] * inversoDeterminante);
             }
-
+            
         }
         MetodosDeOrdenamiento.ImprimirMatriz(Inversa);
         return Inversa;
     }
+    
+    /**
+     * 
+     * @param x  Arreglo que quiere ser asignado a la variable global
+     */
+    public void setVectorA2(float[] x) {
+        this.vectorA2 = x;
+    }
+    
+    /**
+     * 
+     * @param x Recibe una matriz de nxm o nxn
+     * @param y Recibe un arreglo con n = filas de x
+     * @return  Regresa la matriz con el pivote "Un 1 en la primera coordenada", ademas, cambia el vector global si hubo cambio de filas
+     */
+    public float[][] pivote(float[][] x, float[] y) {
+        AritmeticaMatrices atm = new AritmeticaMatrices();
+        float[][] matrizInicial = x;
+        float[] vector = y;
+        float[] transportador = new float[matrizInicial.length];
+        int filaPivote = -1;
+        
+        for (int i = 0; i < matrizInicial.length; i++) {
+            if (Math.abs(matrizInicial[i][0]) == 1) {
+                filaPivote = i;
+                i = matrizInicial.length;
+            }
+        }
+        if (filaPivote > 0) {
+            
+            for (int j = 0; j < matrizInicial[0].length; j++) {
+                transportador[j] = matrizInicial[0][j];
+                matrizInicial[0][j] = matrizInicial[filaPivote][j];
+                matrizInicial[filaPivote][j] = transportador[j];
+                
+            }
+            transportador[0] = vector[0];
+            vector[0] = vector[filaPivote];
+            vector[filaPivote] = transportador[0];
+            System.out.println("La fila pivote es:" + " " + filaPivote);
+            System.out.println("La matriz reordenada es:");
+            MetodosDeOrdenamiento.ImprimirMatriz(matrizInicial);
+            
+            System.out.println("Vectores reordenados");
+            
+            for (int i = 0; i < vector.length; i++) {
+                System.out.print(vector[i] + " ");
+                
+            }
+            atm.setVectorA2(vector);
 
+        } else if (filaPivote == 0) {
+            System.out.println("La fila pivote ya esta en la posicion correcta");
+            System.out.println("La matriz es:");
+            MetodosDeOrdenamiento.ImprimirMatriz(matrizInicial);
+            System.out.println("Vectores:");
+            for (int i = 0; i < vector.length; i++) {
+                System.out.print(vector[i] + " ");
+                
+            }
+            
+        } else {
+            System.out.println("No hay linea pivote");
+            float divisor = matrizInicial[0][0];
+
+            System.out.println("La matriz es:");
+            MetodosDeOrdenamiento.ImprimirMatriz(matrizInicial);
+            
+        }
+        return matrizInicial;
+        
+    }
 }

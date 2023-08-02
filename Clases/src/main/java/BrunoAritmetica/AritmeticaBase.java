@@ -5,7 +5,7 @@ package BrunoAritmetica;
  * multiplicacion y potenciacion, utilizando sumas y restas
  *
  * @author Arellano Bruno
- * @version 1.0
+ * @version 1.1
  */
 public class AritmeticaBase {
 
@@ -310,9 +310,9 @@ public class AritmeticaBase {
      * @param x Arreglo desordenado de numeros
      * @return Regresa un entero que es el minimo comun multiplo de todos.
      */
-    public static int mcMultiplo(int[] x) {
-
-        int[] bases = MetodosDeOrdenamiento.menoraMayor(x);
+    public int mcMultiplo(int[] x) {
+        MetodosDeOrdenamiento mdo = new MetodosDeOrdenamiento();
+        int[] bases = mdo.menoraMayor(x);
         int multiplicador = 1;
 
         for (int i = 0; i < bases.length - 1;) {
@@ -323,6 +323,27 @@ public class AritmeticaBase {
                 i = 0;
             }
         }
+        return bases[0] * multiplicador;
+    }
+    
+        /**
+     * @param x Arreglo desordenado de numeros
+     * @return Regresa un float que es el minimo comun multiplo de todos.
+     */
+    public  float mcMultiplo(float[] x) {
+        MetodosDeOrdenamiento mdo = new MetodosDeOrdenamiento();
+        float[] bases = mdo.menoraMayor(x);
+        float multiplicador = 1;
+
+        for (int i = 0; i < bases.length - 1;) {
+            if (((bases[0] * multiplicador) % bases[i + 1]) == 0) {
+                i++;
+            } else {
+                multiplicador++;
+                i = 0;
+            }
+        }
+
         return bases[0] * multiplicador;
     }
 }
